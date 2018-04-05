@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/book/new', 'BookController@create')->name('create_new_book');
+    Route::post('/book/new', 'BookController@store')->name('store_new_book');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
