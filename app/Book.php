@@ -44,7 +44,7 @@ class Book extends Model
      */
     public function searchableAs()
     {
-        return 'books_index';
+        return env('ALGOLIA_BOOK_INDEX_ID', 'books_index');
     }
 
 
